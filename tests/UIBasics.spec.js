@@ -19,7 +19,5 @@ test.only(
      await page.locator('#signInBtn').click();
      console.log(await page.locator('[style*="block"]').textContent());
      expect(await page.locator('[style*="block"]').textContent()).toContain('Incorrect');
-    
-
 
 });
