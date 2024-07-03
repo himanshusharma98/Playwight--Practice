@@ -9,11 +9,17 @@ test(
     console.log(await page.title());
 });
 
-test(
+test.only(
     'Page Basic UI Tests2', async ({ page }) => {
-    await page.goto('https://google.com/');
+    await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
+    await page.waitForLoadState();
     console.log(await page.title());
-    expect(await page.title()).toBe("Google");
+     await page.locator('#username').fill('rahulshetty'); 
+     await page.locator('#password').fill('learning');
+     await page.locator('#signInBtn').click();
+     console.log(await page.locator('[style*="block"]').textContent());
+     expect(await page.locator('[style*="block"]').textContent()).toContain('Incorrect');
+    
 
 
 });
