@@ -14,10 +14,20 @@ test.only(
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
     await page.waitForLoadState();
     console.log(await page.title());
-     await page.locator('#username').fill('rahulshetty'); 
-     await page.locator('#password').fill('learning');
-     await page.locator('#signInBtn').click();
-     console.log(await page.locator('[style*="block"]').textContent());
-     expect(await page.locator('[style*="block"]').textContent()).toContain('Incorrect');
+    const username = page.locator('#username');
+    const password = page.locator('#password');
+    const submit = page.locator('#signInBtn');
+    const cardTitle = page.locator('.card-body a');
+         //console.log(await page.locator('[style*="block"]').textContent());
+     //expect(await page.locator('[style*="block"]').textContent()).toContain('Incorrect');
+     await username.fill('rahulshettyacademy');
+     await password.fill('learning');
+     await submit.click();
+    console.log( await cardTitle.first().textContent());
+    console.log(await cardTitle .nth(1).textContent());
+    const allTitles = await cardTitle.allTextContents();
+    console.log(allTitles);
+
+ 
 
 });

@@ -29,6 +29,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    timeout: 120 * 1000, // 120 seconds
   },
 
   /* Configure projects for major browsers */
@@ -37,6 +38,7 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
+
 
 
   ],
