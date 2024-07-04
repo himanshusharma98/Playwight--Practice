@@ -27,7 +27,4 @@ test.only(
     console.log(await cardTitle .nth(1).textContent());
     const allTitles = await cardTitle.allTextContents();
     console.log(allTitles);
-
- 
-
 });
