@@ -6,15 +6,21 @@ test.only(
         const userPassword = page.locator('#userPassword');
         const loginButton = page.locator('#login');
         const url = page.goto('https://rahulshettyacademy.com/client/');
-        //const allTitles = page.locator('.card-body b');
+        const products = page.locator('.card-body');
+        const allTitles = page.locator('.card-body b');
     
         await url;
         //await expect(page).toHaveURL('https://rahulshettyacademy.com/client/');
         console.log(url);
-        await userEmail.fill('anshika@gmail.com');
-        await userPassword.fill ('Iamking@000');
+        await userEmail.fill('john.jackson@yopmail.com');
+        await userPassword.fill ('Test@123');
         await loginButton.click();
         await page.waitForLoadState('networkidle');
-        console.log(await page.locator(".card-body b").allTextContents());
+        console.log(await allTitles.allTextContents());
+        const count = await products.count();
+        for(let i = 0; i < count; ++i){
+            
+
+        }
     
 });

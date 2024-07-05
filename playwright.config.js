@@ -28,9 +28,6 @@ export default defineConfig({
         headless: false,
         screenshot: 'on',
         video: 'on',
-
-
-
     
   },
 
