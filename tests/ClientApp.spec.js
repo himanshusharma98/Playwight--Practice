@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { text } from 'stream/consumers';
 test.only(
     'Page Basic UI Tests3', async ({ page }) => {
         //--Locators
@@ -9,6 +10,12 @@ test.only(
         const products = page.locator('.card-body');
         const allTitles = page.locator('.card-body b');
         const productName = 'ZARA COAT 3';
+        const cart = page.locator('[routerlink*="cart"]');
+        const productNameLabel = page.locator('h3:has-text("ZARA COAT 3")');
+        const productList = page.locator('div li')
+        const checkoutClick  = page.locator('text=Checkout');
+        const enterCounty = page.locator('[plaaceholder*="Country"]');
+        const countryDropdown = page.locator('.ta-results');
     
         await url;
         //await expect(page).toHaveURL('https://rahulshettyacademy.com/client/');
@@ -26,6 +33,22 @@ test.only(
                break;
             }
          }
-        await page.pause();
+        await cart.click();
+        await productList.first().waitFor();
+        const bool = await productNameLabel.isVisible();
+        expect(bool).toBeTruthy();
+        await checkoutClick.click();
+        await enterCounty.pressSequentially("ind",{delay:100});
+        await countryDropdown.waitFor();
+        const optionCount = await countryDropdown.locator('button').count();
+        for (let i = 0; i < optionCount; ++i) {
+         const  text = await  countryDropdown.locator('button').nth(i).textContent();
+          if(text === " India") {
+            await countryDropdown.locator('button').nth(i).click();
+            break;
+
+          }
+        }
+        
     
 });
