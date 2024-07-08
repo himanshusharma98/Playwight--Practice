@@ -8,6 +8,7 @@ test.only(
         const url = page.goto('https://rahulshettyacademy.com/client/');
         const products = page.locator('.card-body');
         const allTitles = page.locator('.card-body b');
+        const productName = 'ZARA COAT 3';
     
         await url;
         //await expect(page).toHaveURL('https://rahulshettyacademy.com/client/');
@@ -18,9 +19,13 @@ test.only(
         await page.waitForLoadState('networkidle');
         console.log(await allTitles.allTextContents());
         const count = await products.count();
-        for(let i = 0; i < count; ++i){
-            
-
-        }
+        for (let i = 0; i < count; ++i) {
+            if (await products.nth(i).locator("b").textContent() === productName) {
+               //add to cart
+               await products.nth(i).locator("text= Add To Cart").click();
+               break;
+            }
+         }
+        await page.pause();
     
 });
