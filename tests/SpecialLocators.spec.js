@@ -10,6 +10,6 @@ test('Playwright Special Locators', async ({ page }) => {
     await page.getByRole('button', { name: 'Submit' }).click();
     await page.getByText('Success! The Form has been submitted successfully!').isVisible();
     await page.getByRole('link', { name: 'Shop' }).click();
-
-
+    await page.locator('app-card').filter({ hasText: 'Blackberry' }).getByRole('button').click();
+    
 })
