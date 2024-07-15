@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.only(
-    'UI Controls', async ({ page }) => {
+  'UI Controls', async ({ page }) => {
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
     await page.waitForLoadState();
     console.log(await page.title());
@@ -21,28 +21,28 @@ test.only(
     await expect(termsAndConditions).toBeChecked();
     await expect(blinkingText).toHaveAttribute('class', 'blinkingText');
     await page.pause();
-    
-});
+
+  });
 
 //test.only(
-    //'Child Window', async ({ browser }) => {
-  //const page = await browser.newPage(); // create a new page
-  //await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
-  //await page.waitForLoadState();
-  //console.log(await page.title());
-  //const blinkingText = page.locator('.blinkingText');
+//'Child Window', async ({ browser }) => {
+//const page = await browser.newPage(); // create a new page
+//await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
+//await page.waitForLoadState();
+//console.log(await page.title());
+//const blinkingText = page.locator('.blinkingText');
 
-  //const newPagePromise = page.waitForEvent('page'); // wait for a new page event
-  //const clickPromise = blinkingText.click(); // click the blinking text element
+//const newPagePromise = page.waitForEvent('page'); // wait for a new page event
+//const clickPromise = blinkingText.click(); // click the blinking text element
 
-  //const [newPage] = await Promise.all([
-    //newPagePromise,
-   // clickPromise,
-  //]);
+//const [newPage] = await Promise.all([
+//newPagePromise,
+// clickPromise,
+//]);
 
-  //const text = await newPage.locator('.red').textContent();
-  //console.log(text);
+//const text = await newPage.locator('.red').textContent();
+//console.log(text);
 //});
 
-      
+
 
