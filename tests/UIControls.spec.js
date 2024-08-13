@@ -20,8 +20,7 @@ test.only(
     await termsAndConditions.check();
     await expect(termsAndConditions).toBeChecked();
     await expect(blinkingText).toHaveAttribute('class', 'blinkingText');
-    await page.pause();
-
+    
   });
 
 //test.only(
