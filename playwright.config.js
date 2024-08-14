@@ -12,7 +12,7 @@ export default defineConfig({
     trace: 'on',
     headless: false,
     screenshot: 'on',
-    video: 'on',
+    video: 'off',
 
   },
   projects: [
