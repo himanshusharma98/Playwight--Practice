@@ -33,9 +33,9 @@ test('Upload Download Excel Validation', async ({ page }) => {
   await page.getByRole('button', { name: 'Download' }).click();
   await downloadPromise;
    // wait for the file to download
-  writeExcelTest(textSearch, updateValue, { colChange: 2 }, "C:\Users\sharma\Downloads\download.xlsx");
+  writeExcelTest(textSearch, updateValue, { colChange: 2 }, "D:\Automation Download Testdownload.xlsx");
   await page.locator("#fileinput").click();
-  await page.locator("#fileinput").setInputFiles("C:\Users\sharma\Downloads\download.xlsx");
+  await page.locator("#fileinput").setInputFiles("D:\Automation Download Testdownload.xlsx");
   const textlocator = page.getByText(textSearch);
   const desiredRow = await page.getByRole('row').filter({has :textlocator });
   await expect(desiredRow.locator("#cell-4-undefined")).toContainText(updateValue);
