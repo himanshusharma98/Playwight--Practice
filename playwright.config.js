@@ -2,7 +2,7 @@
 import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
-  timeout: 120000,
+  timeout: 12000,
   retries: 1,
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
@@ -12,7 +12,7 @@ export default defineConfig({
     trace: 'on',
     headless: false,
     screenshot: 'on',
-    video: 'off',
+    video: 'on',
 
   },
   projects: [
